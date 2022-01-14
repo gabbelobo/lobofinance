@@ -12,7 +12,7 @@ def get_stock(symbol):
     start_date = request.args.get("period1")
     end_date = request.args.get("period2")
 
-    unix_start = datetime.utcfromtimestamp(int(start_date)) if start_date else (date.today() - timedelta(days=8)).timestamp()
+    unix_start = datetime.utcfromtimestamp(int(start_date)) if start_date else (date.today() - timedelta(days=8))
     unix_end = datetime.utcfromtimestamp(int(end_date)) if end_date else None
     dfSymbol = pdr.get_data_yahoo(symbol,  start=unix_start, end=unix_end, actions=True)
 
