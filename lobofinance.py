@@ -20,7 +20,7 @@ def get_stock(symbol):
         abort(404)
     dfSymbol.index = dfSymbol.index.strftime("%Y-%m-%d")
 
-    dfTicks = dfSymbol[['Open', 'High', 'Low','Close', 'Volume']]
+    dfTicks = dfSymbol[['Open', 'High', 'Low','Close', 'Volume']].fillna(0)
     dictTicks = dfTicks.to_dict('index')
 
     dfDividends = dfSymbol[dfSymbol['Dividends'] > 0][["Dividends"]]
